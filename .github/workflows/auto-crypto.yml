@@ -1,0 +1,37 @@
+name: Auto Crypto Prices Bot
+
+on:
+  schedule:
+    - cron: "*/30 * * * *" # jalan tiap 30 menit
+  workflow_dispatch:
+
+jobs:
+  update-crypto:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Fetch Crypto Prices
+        run: |
+          BTC=$(curl -s "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd" | jq -r '.bitcoin.usd')
+          ETH=$(curl -s "https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd" | jq -r '.ethereum.usd')
+          echo "BTC=\$${BTC}" >> $GITHUB_ENV
+          echo "ETH=\$${ETH}" >> $GITHUB_ENV
+
+      - name: Update README.md
+        run: |
+          sed -i '/^> /d' README.md
+          sed -i "0,/## 💰 Crypto Prices/{s//## 💰 Crypto Prices\n> 🕒 $(date '+%Y-%m-%d %H:%M:%S') — BTC: $BTC | ETH: $ETH/}" README.md
+
+      - name: Append to crypto-log.md
+        run: |
+          echo "- 🕒 $(date '+%Y-%m-%d %H:%M:%S') | BTC: $BTC | ETH: $ETH" >> crypto-log.md
+
+      - name: Commit changes
+        run: |
+          git config --global user.name "0xzhara"
+          git config --global user.email "122523974+0xzhara@users.noreply.github.com"
+          git add README.md crypto-log.md
+          git commit -m "update: crypto prices" || echo "No changes to commit"
+          git push
