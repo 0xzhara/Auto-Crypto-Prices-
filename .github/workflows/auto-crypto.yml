@@ -2,7 +2,8 @@ name: Auto Crypto Prices Bot
 
 on:
   schedule:
-    - cron: "*/30 * * * *" # jalan tiap 30 menit
+    # jalan setiap 23 jam sekali
+    - cron: "0 */23 * * *"
   workflow_dispatch:
 
 jobs:
