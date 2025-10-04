@@ -13,3 +13,7 @@ Cek semua update harga crypto di sini 👉 [crypto-log.md](./crypto-log.md)
 ---
 
 ⭐ Dibuat oleh **0xzhara**
+
+#base
+#onchain
+#builder
