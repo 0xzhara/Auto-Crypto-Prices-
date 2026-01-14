@@ -3,7 +3,7 @@
 Bot otomatis update harga **BTC** & **ETH** tiap 30 menit ⏳
 
 ## 💰 Crypto Prices
-> 🕒 2026-01-13 23:18:53 — BTC: $95589 | ETH: $3333.01
+> 🕒 2026-01-14 01:45:41 — BTC: $95164 | ETH: $3325.83
 
 ---
 
