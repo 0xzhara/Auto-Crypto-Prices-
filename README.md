@@ -3,7 +3,7 @@
 Bot otomatis update harga **BTC** & **ETH** tiap 30 menit ⏳
 
 ## 💰 Crypto Prices
-> 🕒 2026-04-23 02:33:18 — BTC: $78034 | ETH: $2355.05
+> 🕒 2026-04-23 23:43:16 — BTC: $78243 | ETH: $2330.71
 
 ---
 
